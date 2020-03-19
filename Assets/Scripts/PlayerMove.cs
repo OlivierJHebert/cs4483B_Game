@@ -12,7 +12,7 @@ public class PlayerMove : MonoBehaviour
     private bool leaping = false;//1 when true, 0 when false
 
     //private Color defaultSpriteColor;
-   // public Color leapingSpriteColor;
+    //public Color leapingSpriteColor;
 
     private Sprite PlainForm;
     public float p_WalkSpeed, p_JumpSpeed;
@@ -23,7 +23,6 @@ public class PlayerMove : MonoBehaviour
     public float f_WalkSpeed, f_JumpSpeed;
     public float f_Grav;
     public PhysicsMaterial2D f_Material;
-
 
     public Sprite BallForm;
     public float b_WalkSpeed, b_JumpSpeed;
@@ -54,7 +53,7 @@ public class PlayerMove : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         //Quitting
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -73,6 +72,18 @@ public class PlayerMove : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
 
         m_body.velocity = new Vector2(h * m_WalkSpeed, m_body.velocity.y);
+
+        // Loop the top and bottom sides of the stage
+        if (m_body.position.y > 11) // Top
+            m_body.position = new Vector2(m_body.position.x, -11);
+        else if (m_body.position.y < -11) // Bottom
+            m_body.position = new Vector2(m_body.position.x, 11);
+
+        // Loop the left and right sides of the stage
+        if (m_body.position.x < -20) // Left
+            m_body.position = new Vector2(18, m_body.position.y);
+        else if (m_body.position.x > 18) // Right
+            m_body.position = new Vector2(-20, m_body.position.y);
 
         //changing forms
         if (Input.GetKeyDown(KeyCode.Alpha1) && m_spriteRenderer.sprite != PlainForm)//tap the 1 key to enter PlainForm

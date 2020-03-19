@@ -37,6 +37,8 @@ public class PlayerHazardCollider : MonoBehaviour
 
     void ResetLevel()
     {
+        Destroy(player);
+
         Debug.Log("in ResetLevel...");
         m_Timer += Time.deltaTime;
 

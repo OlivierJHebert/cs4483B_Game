@@ -94,8 +94,9 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -133,10 +134,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8434441681239506031, guid: 1478569f740d10e4db06d18cdd9be807,
+    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
         type: 3}
-      propertyPath: m_Name
-      value: Patrolling Enemy (1)
+      propertyPath: fadeDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
+        type: 3}
+      propertyPath: displayImageDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1390134205}
+    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
+        type: 3}
+      propertyPath: killedImageCanvasGroup
+      value: 
+      objectReference: {fileID: 2035420239}
+    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
+        type: 3}
+      propertyPath: patrolSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8434441681239506020, guid: 1478569f740d10e4db06d18cdd9be807,
         type: 3}
@@ -203,30 +224,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.25
       objectReference: {fileID: 0}
-    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
+    - target: {fileID: 8434441681239506031, guid: 1478569f740d10e4db06d18cdd9be807,
         type: 3}
-      propertyPath: fadeDuration
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
-        type: 3}
-      propertyPath: displayImageDuration
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1390134205}
-    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
-        type: 3}
-      propertyPath: killedImageCanvasGroup
-      value: 
-      objectReference: {fileID: 2035420239}
-    - target: {fileID: 8434441681239506016, guid: 1478569f740d10e4db06d18cdd9be807,
-        type: 3}
-      propertyPath: patrolSpeed
-      value: 3
+      propertyPath: m_Name
+      value: Patrolling Enemy (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1478569f740d10e4db06d18cdd9be807, type: 3}
@@ -811,11 +812,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1259410791}
     m_Modifications:
-    - target: {fileID: 6708419398900249144, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
-      propertyPath: m_Name
-      value: Spike (2)
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1390134205}
+    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: killedImageCanvasGroup
+      value: 
+      objectReference: {fileID: 2035420239}
+    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1390134205}
+    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: killedImageCanvasGroup
+      value: 
+      objectReference: {fileID: 2035420239}
     - target: {fileID: 3600497429133402482, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -871,26 +887,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
-    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+    - target: {fileID: 6708419398900249144, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1390134205}
-    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: killedImageCanvasGroup
-      value: 
-      objectReference: {fileID: 2035420239}
-    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1390134205}
-    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: killedImageCanvasGroup
-      value: 
-      objectReference: {fileID: 2035420239}
+      propertyPath: m_Name
+      value: Spike (2)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0a7ddb05a1b3540a10d10719cd2d3e, type: 3}
 --- !u!4 &1229724827 stripped
@@ -938,11 +939,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1259410791}
     m_Modifications:
-    - target: {fileID: 6708419398900249144, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
-      propertyPath: m_Name
-      value: Spike (1)
-      objectReference: {fileID: 0}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1390134205}
+    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: killedImageCanvasGroup
+      value: 
+      objectReference: {fileID: 2035420239}
+    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1390134205}
+    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+        type: 3}
+      propertyPath: killedImageCanvasGroup
+      value: 
+      objectReference: {fileID: 2035420239}
     - target: {fileID: 3600497429133402482, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -998,26 +1014,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
+    - target: {fileID: 6708419398900249144, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1390134205}
-    - target: {fileID: 2989860490048899037, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: killedImageCanvasGroup
-      value: 
-      objectReference: {fileID: 2035420239}
-    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1390134205}
-    - target: {fileID: 1623468575449603702, guid: eb0a7ddb05a1b3540a10d10719cd2d3e,
-        type: 3}
-      propertyPath: killedImageCanvasGroup
-      value: 
-      objectReference: {fileID: 2035420239}
+      propertyPath: m_Name
+      value: Spike (1)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0a7ddb05a1b3540a10d10719cd2d3e, type: 3}
 --- !u!1 &1390134205 stripped
@@ -1033,11 +1034,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 635021100}
     m_Modifications:
-    - target: {fileID: 7892794485512265901, guid: effbd82cda28cc446af721035dee1c55,
-        type: 3}
-      propertyPath: m_Name
-      value: Updraft (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 7892794485512265890, guid: effbd82cda28cc446af721035dee1c55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1097,6 +1093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892794485512265901, guid: effbd82cda28cc446af721035dee1c55,
+        type: 3}
+      propertyPath: m_Name
+      value: Updraft (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: effbd82cda28cc446af721035dee1c55, type: 3}
@@ -1352,7 +1353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1490741148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1361,8 +1362,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: 06aec03c7f6db34429661fd76a3494f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1372,6 +1371,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1490741151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2035420235}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1741,8 +1741,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1752,6 +1750,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2035420238
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1789,6 +1788,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
+        type: 3}
+      propertyPath: myList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
+        type: 3}
+      propertyPath: leapingSpriteColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
+        type: 3}
+      propertyPath: leapingSpriteColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
+        type: 3}
+      propertyPath: leapingSpriteColor.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2409010841050604387, guid: d2de977ef3a56df4e8c6b9083a008321,
         type: 3}
@@ -1844,31 +1863,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: leapingSpriteColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: leapingSpriteColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: leapingSpriteColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: dashCooldown
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2409010841050604386, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: dashStrength
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}
@@ -1958,11 +1952,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 635021100}
     m_Modifications:
-    - target: {fileID: 7892794485512265901, guid: effbd82cda28cc446af721035dee1c55,
-        type: 3}
-      propertyPath: m_Name
-      value: Updraft
-      objectReference: {fileID: 0}
     - target: {fileID: 7892794485512265890, guid: effbd82cda28cc446af721035dee1c55,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2022,6 +2011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892794485512265901, guid: effbd82cda28cc446af721035dee1c55,
+        type: 3}
+      propertyPath: m_Name
+      value: Updraft
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: effbd82cda28cc446af721035dee1c55, type: 3}

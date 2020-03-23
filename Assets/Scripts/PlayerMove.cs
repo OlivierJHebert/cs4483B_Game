@@ -8,7 +8,6 @@ public class PlayerMove : MonoBehaviour
     public float maxJumpTime;//the maximum time for which holding down 'jump' increases jump height
     private float jumpTimeCounter;
     private bool isJumping;
-    private bool isFalling;
     public float fallFactor;//the number by which gravity is multiplied when falling
     
     //dash ability parameters
@@ -66,7 +65,6 @@ public class PlayerMove : MonoBehaviour
         //init jump parameters
         jumpTimeCounter = 0;
         isJumping = false;
-        isFalling = false;
     }
 
     // Update is called once per frame
@@ -188,13 +186,6 @@ public class PlayerMove : MonoBehaviour
                 timeNextDash = Time.time + dashCooldown;
             }
         }
-
-        /* Attack
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            //attack, destroy enemy, spawn pulp
-        }
-        */
 
     }
 

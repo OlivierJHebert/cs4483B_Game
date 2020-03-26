@@ -9,6 +9,8 @@ Controls:
  - Move side to side with the left and right arrow keys
  - Jump with Spacebar
  - Attack enemies in front of you by tapping Z (Note: no animation, there is an attack cooldown, see Console Log for alerts)
+	- direct attacks up by holding the up arrow key
+	- direct attacks down during a jump by holding the down arrow key
  - Take on different forms to move through the world:
 	- 1: PlainForm, allows you to attack and use abilities
 	- 2: FlatForm, floats on thermals well but leap is disabled

@@ -7,6 +7,7 @@ Predictably, it is somewhat buggy.
 Controls:
  - Quit the game by tapping Q
  - Move around with the arrow keys: side arrows walk, up arrow jumps
+ - Attack enemies in front of you by tapping Z (Note: no animation, there is an attack cooldown, see Console Log for alerts)
  - Take on different forms to move through the world:
 	- 1: PlainForm
 	- 2: FlatForm, floats on thermals well but leap is disabled

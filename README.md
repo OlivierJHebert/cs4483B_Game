@@ -6,10 +6,11 @@ Predictably, it is somewhat buggy.
 
 Controls:
  - Quit the game by tapping Q
- - Move around with the arrow keys: side arrows walk, up arrow jumps
+ - Move side to side with the left and right arrow keys
+ - Jump with Spacebar
  - Attack enemies in front of you by tapping Z (Note: no animation, there is an attack cooldown, see Console Log for alerts)
  - Take on different forms to move through the world:
-	- 1: PlainForm
+	- 1: PlainForm, allows you to attack and use abilities
 	- 2: FlatForm, floats on thermals well but leap is disabled
 	- 3: BallForm, rolls fast and bounces (collision artefacts)
  - Use special abilities to traverse obstacles
@@ -20,5 +21,5 @@ Things to Do:
  - jump between platforms, avoiding enemies and spikes.
  - float on the updraft above the blue box on the ground. It lifts you higher when you jump if you are too heavy to float.
 	- try reaching the high platform in one jump. Hint: leap + updraft
- - Experiment with the different forms, experimenting with traversal
+ - Try moving in each of the different forms, experimenting with traversal
  - Die on enemies and spikes!

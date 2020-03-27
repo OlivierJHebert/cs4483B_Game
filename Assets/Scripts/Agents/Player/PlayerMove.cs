@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour, IMove
     private bool leaping = false;//1 when true, 0 when false
 
     //player shapeshift state parameters
+    private PlayerAttack attackScript;
     private Form currentForm;
     [SerializeField] private Form plainForm;
     [SerializeField] private Form ballForm;
@@ -42,6 +43,7 @@ public class PlayerMove : MonoBehaviour, IMove
         m_body = gameObject.GetComponent<Rigidbody2D>();
         m_boxCollider2d = gameObject.GetComponent<BoxCollider2D>();
         m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        attackScript = gameObject.GetComponent<PlayerAttack>();
 
         //init player shapeshift state
         shapeshift(plainForm);
@@ -148,15 +150,17 @@ public class PlayerMove : MonoBehaviour, IMove
         
         //tap the 2 key to enter FlatForm
         //floats, moves slowly, short jump
-        else if(Input.GetKeyDown(KeyCode.Alpha2) && PlayerPrefs.GetInt("magic") >= 3 && currentForm != flatForm)
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && PlayerPrefs.GetInt("magic") >= 3 && attackScript.isMagicPoolEmpty() == false && currentForm != flatForm)
         {
+            attackScript.drainMagicPool();
             shapeshift(flatForm);
         }
 
         //tap the 3 key to enter the BallForm
         //bounces, moves quickly
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerPrefs.GetInt("magic") >= 5 && currentForm != ballForm)
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerPrefs.GetInt("magic") >= 5 && attackScript.isMagicPoolEmpty() == false && currentForm != ballForm)
         {
+            attackScript.drainMagicPool();
             shapeshift(ballForm);
         }
 

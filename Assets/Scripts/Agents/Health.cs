@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
         moveController = gameObject.GetComponent<IMove>();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (health <= 0)
         {
@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
      *                      1 - fire damage  (sets player aflame)
      * Note: fire status buildup reduces water status buildup, and vice-versa
      */
-    public void takeDamage(float damage, int type = 0)
+    public virtual void takeDamage(float damage, int type = 0)
     {
         health -= damage;//apply damage
         statusBuildup += type * damage;//apply status buildup

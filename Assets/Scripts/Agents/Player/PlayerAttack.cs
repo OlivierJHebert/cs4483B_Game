@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public float maxMagicPool = 5;
+    private float magicPool;
     private float attackDelay;//time btwn last attack and next successful attack request
     public float attackCooldown;//time between successful attack requests
     public float attackRange;//radius of attack circle
@@ -17,6 +19,15 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        float stat_Magic = PlayerPrefs.GetInt("magic");
+        maxMagicPool += stat_Magic;
+        magicPool = maxMagicPool;
+
+        if (PlayerPrefs.GetInt("attack") >= 3)
+        {
+            attackRange += 0.5f;
+        }
+
         currAttackPos = attackPosSide;
         m_boxCollider2d = gameObject.GetComponent<BoxCollider2D>();
     }
@@ -73,6 +84,14 @@ public class PlayerAttack : MonoBehaviour
         {
             Gizmos.DrawWireSphere(attackPosSide.position, attackRange);
         }
+    }
+    public bool isMagicPoolEmpty()
+    {
+        return magicPool <= 0;
+    }
+    public void drainMagicPool()
+    {
+        magicPool--;
     }
 
 }

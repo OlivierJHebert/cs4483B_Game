@@ -1,8 +1,4 @@
-This is a horizontal slice of an action platformer that prototypes the traversal mechanics and simple hazards.
-
-Combat mechanics have been simplified (death) or completely omitted (attacking).
-
-Predictably, it is somewhat buggy.
+This is a vertical slice of an arena-oriented action platformer with a stat-based progression system.
 
 Controls:
  - Quit the game by tapping Q
@@ -18,6 +14,7 @@ Controls:
  - Use special abilities to traverse obstacles
 	- X: leap higher next time you jump (color changes when active)
 	- C: dash in the direction you're moving (there is a cooldown of a few seconds)
+ - Upgrade stats after each level to increase your character's damage, speed, health, and abilities
 
 Things to Do:
  - jump between platforms, avoiding enemies and spikes.

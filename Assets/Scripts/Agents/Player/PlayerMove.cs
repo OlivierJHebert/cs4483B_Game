@@ -10,7 +10,8 @@ public class PlayerMove : MonoBehaviour, IMove
     //jumping parameters
     public float maxJumpTime;//the maximum time for which holding down 'jump' increases jump height
     private float jumpTimeCounter = 0;
-    private bool isJumping = false;
+    private bool isJumping = false;//signals if the player is in the middle of an initiated jump
+    private bool doubleJumping = false;//signals whether the player has jumped midair
     public float fallFactor;//the number by which gravity is multiplied when falling
 
     //dash ability parameters
@@ -68,10 +69,15 @@ public class PlayerMove : MonoBehaviour, IMove
         }
 
         /**********  Jumping  **********/
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && (isGrounded() || (doubleJumping == false && PlayerPrefs.GetInt("speed") >= 3)))
         {
             m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
-            isJumping = true;
+            if (!isGrounded()) doubleJumping = true;
+            else
+            {
+                isJumping = true;
+                doubleJumping = false;
+            }
             jumpTimeCounter = maxJumpTime;
             m_spriteRenderer.color = new Color(255,255,255);//defaultSpriteColor;
         }
@@ -142,20 +148,21 @@ public class PlayerMove : MonoBehaviour, IMove
         
         //tap the 2 key to enter FlatForm
         //floats, moves slowly, short jump
-        else if(Input.GetKeyDown(KeyCode.Alpha2) && currentForm != flatForm)
+        else if(Input.GetKeyDown(KeyCode.Alpha2) && PlayerPrefs.GetInt("magic") >= 3 && currentForm != flatForm)
         {
             shapeshift(flatForm);
         }
 
         //tap the 3 key to enter the BallForm
         //bounces, moves quickly
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && currentForm != ballForm)
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerPrefs.GetInt("magic") >= 5 && currentForm != ballForm)
         {
             shapeshift(ballForm);
         }
 
         /**********  Abilities  **********/
-        else if (Input.GetKeyDown(KeyCode.X) && !leaping && currentForm == flatForm)//tap S to enter leap state
+        //remove leaping??
+        else if (Input.GetKeyDown(KeyCode.X) && !leaping && currentForm != flatForm)//tap S to enter leap state
         {
             leaping = true;
             m_spriteRenderer.color = new Color(0,0,0);//leapingSpriteColor;
@@ -163,7 +170,7 @@ public class PlayerMove : MonoBehaviour, IMove
 
         else if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
         {
-            if (Time.time >= timeNextDash)
+            if (Time.time >= timeNextDash && isGrounded() && PlayerPrefs.GetInt("speed") >= 5)
             {
                 m_body.velocity += new Vector2(walkInput * currentForm.WalkSpeed * dashStrength, 0);
                 timeNextDash = Time.time + dashCooldown;
@@ -175,7 +182,7 @@ public class PlayerMove : MonoBehaviour, IMove
     private bool isGrounded()
     {
         RaycastHit2D raycastHit2d = Physics2D.BoxCast(m_boxCollider2d.bounds.center, m_boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformsLayerMask);
-        Debug.Log(raycastHit2d.collider);
+        //Debug.Log(raycastHit2d.collider);
         return raycastHit2d.collider != null;
     }
 
@@ -191,5 +198,6 @@ public class PlayerMove : MonoBehaviour, IMove
     {
         //slow the player
         Debug.Log("Trigger Water Effect!");
+        slowedTimer += time;
     }
 }

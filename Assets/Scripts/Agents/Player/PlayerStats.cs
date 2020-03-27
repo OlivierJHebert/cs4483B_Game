@@ -28,11 +28,12 @@ public class PlayerStats : MonoBehaviour {
     }
     
     void Start() {
-        PlayerPrefs.SetInt("HP", 1);
-        PlayerPrefs.SetInt("attack", 1);
-        PlayerPrefs.SetInt("speed", 1);
-        PlayerPrefs.SetInt("magic", 1);
+        PlayerPrefs.SetInt("HP", HP);
+        PlayerPrefs.SetInt("attack", attack);
+        PlayerPrefs.SetInt("speed", speed);
+        PlayerPrefs.SetInt("magic", magic);
 
+        /* Loading stats from PlayerPrefs commented for testing
         if (PlayerPrefs.HasKey("HP")) {
             HP = PlayerPrefs.GetInt("HP");
             Debug.Log("HP: " + HP);
@@ -49,5 +50,6 @@ public class PlayerStats : MonoBehaviour {
             magic = PlayerPrefs.GetInt("magic");
             Debug.Log("magic: " + magic);
         }
+        */
     }
 }

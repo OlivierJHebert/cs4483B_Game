@@ -7,15 +7,26 @@ public class Patrol : PlayerHazardCollider, IMove
     public float patrolSpeed;
     public float distance;
 
+    private float knockbackTimer = 0;
+
     [SerializeField] private LayerMask platformsLayerMask;
     public Transform groundDetection;
 
     private bool m_MovingRight = true;
 
+    private Rigidbody2D m_body;
+
+    void Start()
+    {
+        m_body = gameObject.GetComponent<Rigidbody2D>();
+    }
+
     private void Update()
     {
-        
-        transform.Translate(Vector2.right * patrolSpeed * Time.deltaTime);
+        if (knockbackTimer > 0)
+            knockbackTimer -= Time.deltaTime;
+        else
+            transform.Translate(Vector2.right * patrolSpeed * Time.deltaTime);
 
         RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, distance, platformsLayerMask);
 
@@ -37,9 +48,10 @@ public class Patrol : PlayerHazardCollider, IMove
 
     protected override void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject == player)
+        if(other.gameObject == player && !player.GetComponent<PlayerMove>().invincible())
         {
-            player.GetComponent<Health>().takeDamage(damage);
+            bool right = (player.GetComponent<Rigidbody2D>().position.x > m_body.position.x);
+            player.GetComponent<Health>().takeDamage(damage, right);
         }
     }
 
@@ -47,5 +59,15 @@ public class Patrol : PlayerHazardCollider, IMove
     {
         //slow the enemy (TO-DO)
         Debug.Log("Trigger Water Effect!");
+    }
+
+    public void knockback(bool right)
+    {
+        // Start the knockback timer
+        knockbackTimer = 0.3f;
+
+        // Knock the enemy away from the source of damage
+        int direction = (right ? 5 : -5);
+        m_body.velocity = new Vector2(direction, 10);
     }
 }

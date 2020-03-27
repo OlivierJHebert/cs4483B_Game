@@ -49,7 +49,8 @@ public class PlayerAttack : MonoBehaviour
 
                 for (int i = 0; i < enemiesToDmg.Length; i++)
                 {
-                    enemiesToDmg[i].GetComponent<Health>().takeDamage(damage + PlayerPrefs.GetInt("attack"));
+                    bool right = (enemiesToDmg[i].GetComponent<Rigidbody2D>().position.x > currAttackPos.position.x);
+                    enemiesToDmg[i].GetComponent<Health>().takeDamage(damage + PlayerPrefs.GetInt("attack"), right);
                 }
 
                 attackDelay = attackCooldown;

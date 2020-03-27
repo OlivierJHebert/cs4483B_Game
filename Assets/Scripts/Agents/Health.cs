@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
      *                      1 - fire damage  (sets player aflame)
      * Note: fire status buildup reduces water status buildup, and vice-versa
      */
-    public virtual void takeDamage(float damage, int type = 0)
+    public virtual void takeDamage(float damage, bool right, int type = 0)
     {
         health -= damage;//apply damage
         statusBuildup += type * damage;//apply status buildup
@@ -52,5 +52,7 @@ public class Health : MonoBehaviour
             //slow agent for a time (idea: time determined by overflow)
             moveController.TriggerWaterEffect(1);
         }
+
+        moveController.knockback(right);
     }
 }

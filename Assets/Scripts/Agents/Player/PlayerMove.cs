@@ -6,6 +6,10 @@ public class PlayerMove : MonoBehaviour, IMove
 {
     //wetTrigger: slows player
     private float slowedTimer = 0;
+
+    // Knockback parameters
+    private float knockbackTimer = 0;
+    private float alpha = 1.0f;
     
     //jumping parameters
     public float maxJumpTime;//the maximum time for which holding down 'jump' increases jump height
@@ -70,6 +74,27 @@ public class PlayerMove : MonoBehaviour, IMove
             currWalkSpeed *= 0.5f;
         }
 
+        /**********  Knockback  **********/
+        // When the knockback timer is active, the player is unable to move for a short time (0.3 seconds)
+        // During this time, the velocity will be changed to send the player away from the damaging object
+        // For the rest of the timer duration, the player will be unable to take damage
+        // This allows a brief period to react and ensures the player can't be unfairly killed instantly
+        if (knockbackTimer > 0)
+        {
+            knockbackTimer -= Time.deltaTime;
+
+            // Flash player sprite to indicate invincibility
+            alpha = ((alpha == 1) ? 0 : 1);
+        }
+        else
+        {
+            alpha = 1;
+        }
+
+        Color color = m_spriteRenderer.color;
+        color.a = alpha;
+        m_spriteRenderer.color = color;
+
         /**********  Jumping  **********/
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded() || (doubleJumping == false && PlayerPrefs.GetInt("speed") >= 3)))
         {
@@ -81,7 +106,7 @@ public class PlayerMove : MonoBehaviour, IMove
                 doubleJumping = false;
             }
             jumpTimeCounter = maxJumpTime;
-            m_spriteRenderer.color = new Color(255,255,255);//defaultSpriteColor;
+            m_spriteRenderer.color = new Color(255,255,255,alpha);//defaultSpriteColor;
         }
         
         //if the jump key is held, the player continues to jump for a short time
@@ -116,7 +141,8 @@ public class PlayerMove : MonoBehaviour, IMove
         //Input.GetAxis(...) for smooth movement, Input.GetAxisRaw(...) for snappy movement
         float walkInput = Input.GetAxis("Horizontal");
 
-        m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
+        if (knockbackTimer < 0.5f)
+            m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
 
         //player facing (flips according to horizontal input)
         if(walkInput > 0)
@@ -169,7 +195,7 @@ public class PlayerMove : MonoBehaviour, IMove
         else if (Input.GetKeyDown(KeyCode.X) && !leaping && currentForm != flatForm)//tap S to enter leap state
         {
             leaping = true;
-            m_spriteRenderer.color = new Color(0,0,0);//leapingSpriteColor;
+            m_spriteRenderer.color = new Color(0,0,0,alpha);//leapingSpriteColor;
         }
 
         else if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
@@ -203,5 +229,25 @@ public class PlayerMove : MonoBehaviour, IMove
         //slow the player
         Debug.Log("Trigger Water Effect!");
         slowedTimer += time;
+    }
+
+    public void knockback(bool right)
+    {
+        // Start the knockback timer
+        knockbackTimer = 0.8f;
+
+        // Knock the player away from the source of damage
+        int direction = (right ? 5 : -5);
+        m_body.velocity = new Vector2(direction, 10);
+    }
+
+    public bool invincible()
+    {
+        return (knockbackTimer > 0);
+    }
+
+    public bool facingRight()
+    {
+        return (transform.eulerAngles.y == 180);
     }
 }

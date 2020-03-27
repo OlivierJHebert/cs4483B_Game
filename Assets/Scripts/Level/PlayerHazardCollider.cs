@@ -10,9 +10,11 @@ public class PlayerHazardCollider : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == player && !player.GetComponent<PlayerMove>().invincible())
         {
-            player.GetComponent<Health>().takeDamage(damage);
+            // Knockback direction is determined by player facing because the spikes don't move
+            bool right = player.GetComponent<PlayerMove>().facingRight();
+            player.GetComponent<Health>().takeDamage(damage, right);
         }
     }
 }

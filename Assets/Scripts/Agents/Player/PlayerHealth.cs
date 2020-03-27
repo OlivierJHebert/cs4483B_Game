@@ -44,7 +44,7 @@ public class PlayerHealth : Health
         playerDeathManager.GetComponent<PlayerDeath>().KillPlayer();
     }
 
-    public override void takeDamage(float damage, int type = 0)
+    public override void takeDamage(float damage, bool right, int type = 0)
     {
         if (isBlocking)
         {
@@ -53,7 +53,7 @@ public class PlayerHealth : Health
 
         else
         {
-            base.takeDamage(damage, type);//take the damage
+            base.takeDamage(damage, right, type);//take the damage
         }
         
     }

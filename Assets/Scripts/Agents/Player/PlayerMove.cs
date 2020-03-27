@@ -58,7 +58,7 @@ public class PlayerMove : MonoBehaviour, IMove
 
         /**********  Water Trigger: Slowed  **********/
         float currJumpStrength = currentForm.JumpStrength;
-        float currWalkSpeed = currentForm.WalkSpeed;
+        float currWalkSpeed = currentForm.WalkSpeed + PlayerPrefs.GetInt("speed");
 
         if (slowedTimer > 0)
         {

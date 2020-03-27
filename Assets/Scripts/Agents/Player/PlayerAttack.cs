@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
                 for (int i = 0; i < enemiesToDmg.Length; i++)
                 {
-                    enemiesToDmg[i].GetComponent<Health>().takeDamage(damage);
+                    enemiesToDmg[i].GetComponent<Health>().takeDamage(damage + PlayerPrefs.GetInt("attack"));
                 }
 
                 attackDelay = attackCooldown;

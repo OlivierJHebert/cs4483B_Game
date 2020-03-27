@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     private float attackDelay;//time btwn last attack and next successful attack request
     public float attackCooldown;//time between successful attack requests
     public float attackRange;//radius of attack circle
-    public int damage;
+    public float damage;
 
     [SerializeField] private Transform attackPosSide, attackPosUp, attackPosDown;
     private Transform currAttackPos = null;
@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
 
                 for (int i = 0; i < enemiesToDmg.Length; i++)
                 {
-                    enemiesToDmg[i].GetComponent<EnemyCombat>().takeDamage(damage);
+                    enemiesToDmg[i].GetComponent<Health>().takeDamage(damage);
                 }
 
                 attackDelay = attackCooldown;
@@ -61,12 +61,15 @@ public class PlayerAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
+        //draws circle around most recent attack position
+        //defaults to attackPosSide if currAttackPos uninitialized (no attacks yet)
         Gizmos.color = Color.red;
-        try//draws circle around most recent attack position, defaults to attackPosSide if currAttackPos uninitialized (no attacks yet)
+        if(currAttackPos != null)
         {
             Gizmos.DrawWireSphere(currAttackPos.position, attackRange);
         }
-        catch(NullReferenceException)
+
+        else
         {
             Gizmos.DrawWireSphere(attackPosSide.position, attackRange);
         }

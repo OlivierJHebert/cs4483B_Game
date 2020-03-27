@@ -99,10 +99,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2409010841050604387}
-  - component: {fileID: 2409010841050604386}
   - component: {fileID: 2409010841050604317}
   - component: {fileID: 2409010841050604316}
   - component: {fileID: 2409010841050604318}
+  - component: {fileID: 2409010841050604386}
+  - component: {fileID: -5293985889216034612}
+  - component: {fileID: 6392639349641588882}
   - component: {fileID: -7243901278822282648}
   m_Layer: 0
   m_Name: Player
@@ -128,47 +130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2409010841050604386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2409010841050604385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a373246c12e9f043b71467054949497, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxJumpTime: 0.17
-  fallFactor: 2
-  dashStrength: 6
-  dashCooldown: 5
-  leapStrength: 5
-  plainForm:
-    playerSprite: {fileID: 21300000, guid: 47baf6f1f2c72804f8f9be0ed7373128, type: 3}
-    walkSpeed: 10
-    jumpStrength: 21
-    gravScale: 8
-    fallMultiplier: 2
-    physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
-  ballForm:
-    playerSprite: {fileID: 21300000, guid: ea77fde5c2d1bcb43b1b5a4e333937ac, type: 3}
-    walkSpeed: 15
-    jumpStrength: 20
-    gravScale: 6
-    fallMultiplier: 1
-    physicsMat: {fileID: 6200000, guid: 0d9d17ee3fb00414f95be0826686fc54, type: 2}
-  flatForm:
-    playerSprite: {fileID: 21300000, guid: 8649e70eae1743c4e948a0820555197f, type: 3}
-    walkSpeed: 5
-    jumpStrength: 10
-    gravScale: 2
-    fallMultiplier: 1
-    physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
-  platformsLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!50 &2409010841050604317
 Rigidbody2D:
   serializedVersion: 4
@@ -266,6 +227,79 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2409010841050604386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409010841050604385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a373246c12e9f043b71467054949497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxJumpTime: 0.17
+  fallFactor: 2
+  dashStrength: 6
+  dashCooldown: 5
+  leapStrength: 5
+  plainForm:
+    playerSprite: {fileID: 21300000, guid: 47baf6f1f2c72804f8f9be0ed7373128, type: 3}
+    walkSpeed: 10
+    jumpStrength: 21
+    gravScale: 8
+    fallMultiplier: 2
+    physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
+  ballForm:
+    playerSprite: {fileID: 21300000, guid: ea77fde5c2d1bcb43b1b5a4e333937ac, type: 3}
+    walkSpeed: 15
+    jumpStrength: 20
+    gravScale: 6
+    fallMultiplier: 1
+    physicsMat: {fileID: 6200000, guid: 0d9d17ee3fb00414f95be0826686fc54, type: 2}
+  flatForm:
+    playerSprite: {fileID: 21300000, guid: 8649e70eae1743c4e948a0820555197f, type: 3}
+    walkSpeed: 5
+    jumpStrength: 10
+    gravScale: 2
+    fallMultiplier: 1
+    physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
+  platformsLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &-5293985889216034612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409010841050604385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f78a10c276b2f0540a9e272f088d4b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  fireResist: 5
+  waterResist: -5
+  playerDeathManager: {fileID: 0}
+--- !u!114 &6392639349641588882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409010841050604385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702b8f02366c8d34bbe068ed923c1d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  attack: 0
+  speed: 0
+  magic: 0
 --- !u!114 &-7243901278822282648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,14 +313,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.3
+  attackRange: 1
+  damage: 5
   attackPosSide: {fileID: 2207547067214623534}
   attackPosUp: {fileID: 2518987258557862062}
   attackPosDown: {fileID: 3454983591685841653}
-  attackRange: 1
   enemyLayer:
     serializedVersion: 2
     m_Bits: 512
   platformLayer:
     serializedVersion: 2
     m_Bits: 256
-  damage: 5

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8434441681239506018}
   - component: {fileID: 8434441681239506017}
   - component: {fileID: 8434441681239506016}
-  - component: {fileID: 8318460438310498405}
+  - component: {fileID: 4419349080234772198}
   m_Layer: 9
   m_Name: Patrolling Enemy
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8434441681239506031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.74, y: -2.59, z: 0}
-  m_LocalScale: {x: 1.343, y: 1.376, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8434441682514996058}
   m_Father: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 1
   displayImageDuration: 1
-  player: {fileID: 0}
+  player: {fileID: 2409010841050604385, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}
   killedImageCanvasGroup: {fileID: 0}
   patrolSpeed: 5
   distance: 3
@@ -155,7 +155,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   groundDetection: {fileID: 8434441682514996058}
---- !u!114 &8318460438310498405
+--- !u!114 &4419349080234772198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,10 +164,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8434441681239506031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84157375aee6794e929d7a596e49bee, type: 3}
+  m_Script: {fileID: 11500000, guid: 27e0c34bf35e3c5479e39831445f45d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  maxHealth: 10
+  fireResist: 5
+  waterResist: -5
 --- !u!1 &8434441682514996057
 GameObject:
   m_ObjectHideFlags: 0

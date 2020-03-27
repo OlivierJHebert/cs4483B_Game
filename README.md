@@ -7,7 +7,7 @@ Predictably, it is somewhat buggy.
 Controls:
  - Quit the game by tapping Q
  - Move side to side with the left and right arrow keys
- - Jump with Spacebar
+ - Jump with Spacebar (hold for higher jump)
  - Attack enemies in front of you by tapping Z (Note: no animation, there is an attack cooldown, see Console Log for alerts)
 	- direct attacks up by holding the up arrow key
 	- direct attacks down during a jump by holding the down arrow key

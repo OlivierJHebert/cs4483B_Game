@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MonoBehaviour, IMove
 {
+    //wetTrigger: slows player
+    private float slowedTimer = 0;
+    
     //jumping parameters
     public float maxJumpTime;//the maximum time for which holding down 'jump' increases jump height
-    private float jumpTimeCounter;
-    private bool isJumping;
+    private float jumpTimeCounter = 0;
+    private bool isJumping = false;
     public float fallFactor;//the number by which gravity is multiplied when falling
 
     //dash ability parameters
@@ -35,31 +38,39 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         //init component references
-        m_body = gameObject.GetComponent(typeof(Rigidbody2D)) as Rigidbody2D;
-        m_boxCollider2d = gameObject.GetComponent(typeof(BoxCollider2D)) as BoxCollider2D;
-        m_spriteRenderer = gameObject.GetComponent(typeof(SpriteRenderer)) as SpriteRenderer;
+        m_body = gameObject.GetComponent<Rigidbody2D>();
+        m_boxCollider2d = gameObject.GetComponent<BoxCollider2D>();
+        m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 
         //init player shapeshift state
         shapeshift(plainForm);
-
-        //init jump parameters
-        jumpTimeCounter = 0;
-        isJumping = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         /**********  Quitting  **********/
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Application.Quit();
         }
 
+        /**********  Water Trigger: Slowed  **********/
+        float currJumpStrength = currentForm.JumpStrength;
+        float currWalkSpeed = currentForm.WalkSpeed;
+
+        if (slowedTimer > 0)
+        {
+            slowedTimer -= Time.deltaTime;
+            currJumpStrength *= 0.5f;
+            currWalkSpeed *= 0.5f;
+        }
+
         /**********  Jumping  **********/
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
         {
-            m_body.velocity = Vector2.up * (currentForm.JumpStrength + (leaping ? leapStrength : 0));
+            m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
             m_spriteRenderer.color = new Color(255,255,255);//defaultSpriteColor;
@@ -70,7 +81,7 @@ public class PlayerMove : MonoBehaviour
         {
             if(jumpTimeCounter > 0)
             {
-                m_body.velocity = Vector2.up * (currentForm.JumpStrength + (leaping ? leapStrength : 0));
+                m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
                 jumpTimeCounter -= Time.deltaTime;
             }
 
@@ -87,7 +98,7 @@ public class PlayerMove : MonoBehaviour
             leaping = false;
         }
         
-        if(m_body.velocity.y < 0)//increase gravity during fall
+        if(m_body.velocity.y < 0 && currentForm == plainForm)//increase gravity during fall
         {
             m_body.velocity += Vector2.up * Physics2D.gravity.y * (fallFactor - 1) * Time.deltaTime;
         }
@@ -97,7 +108,7 @@ public class PlayerMove : MonoBehaviour
         //Input.GetAxis(...) for smooth movement, Input.GetAxisRaw(...) for snappy movement
         float walkInput = Input.GetAxis("Horizontal");
 
-        m_body.velocity = new Vector2(walkInput * currentForm.WalkSpeed, m_body.velocity.y);
+        m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
 
         //player facing (flips according to horizontal input)
         if(walkInput > 0)
@@ -176,4 +187,9 @@ public class PlayerMove : MonoBehaviour
         m_spriteRenderer.sprite = next.Sprite;
     }
 
+    public void TriggerWaterEffect(float time)
+    {
+        //slow the player
+        Debug.Log("Trigger Water Effect!");
+    }
 }

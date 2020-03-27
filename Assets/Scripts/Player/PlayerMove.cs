@@ -97,8 +97,8 @@ public class PlayerMove : MonoBehaviour
         //Input.GetAxis(...) for smooth movement, Input.GetAxisRaw(...) for snappy movement
         float walkInput = Input.GetAxis("Horizontal");
 
-        m_body.velocity = new Vector2(walkInput * currentForm.WalkSpeed, m_body.velocity.y);
-
+        m_body.velocity = new Vector2(walkInput * (currentForm.WalkSpeed + PlayerPrefs.GetInt("speed")), m_body.velocity.y);
+        
         //player facing (flips according to horizontal input)
         if(walkInput > 0)
         {

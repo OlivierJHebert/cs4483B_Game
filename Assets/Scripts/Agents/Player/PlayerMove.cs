@@ -66,6 +66,7 @@ public class PlayerMove : MonoBehaviour, IMove
 
         if (slowedTimer > 0)
         {
+            Debug.Log("Player is Slowed!");
             slowedTimer -= Time.deltaTime;
             currJumpStrength *= 0.5f;
             currWalkSpeed *= 0.5f;

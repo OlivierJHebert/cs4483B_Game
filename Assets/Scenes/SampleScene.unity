@@ -613,6 +613,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1390134205}
   damage: 5
+  damageType: 0
   patrolSpeed: 5
   distance: 2
   platformsLayerMask:
@@ -2767,6 +2768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1390134205}
   damage: 5
+  damageType: 0
   patrolSpeed: 5
   distance: 2
   groundDetection: {fileID: 1078057536}
@@ -3760,11 +3762,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392639349641588882, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: HP
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}

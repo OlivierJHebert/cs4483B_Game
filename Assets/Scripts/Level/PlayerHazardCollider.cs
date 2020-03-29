@@ -7,6 +7,7 @@ public class PlayerHazardCollider : MonoBehaviour
 {
     public GameObject player;
     public float damage = 5;
+    public int damageType = 0;
 
     protected virtual void OnCollisionEnter2D(Collision2D other)
     {
@@ -14,7 +15,7 @@ public class PlayerHazardCollider : MonoBehaviour
         {
             // Knockback direction is determined by player facing because the spikes don't move
             bool right = player.GetComponent<PlayerMove>().facingRight();
-            player.GetComponent<Health>().takeDamage(damage, right);
+            player.GetComponent<Health>().takeDamage(damage, right, damageType);
         }
     }
 }

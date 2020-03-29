@@ -57,7 +57,7 @@ public class PlayerHealth : Health
     {
         if (isBlocking)
         {
-            isBlocking = false;//block the hit
+            isBlocking = false;//stop blocking
             blockTimer += blockCooldown;//disallow blocking while recharging
             gameObject.GetComponent<PlayerMove>().knockback(right, false);
         }

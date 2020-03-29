@@ -17,7 +17,6 @@ public class MapManager : MonoBehaviour
 	{
 		// Pass a ref and default the player Starting Pin
 		int levelComp = PlayerPrefs.GetInt("levelComp", 0);
-		Debug.Log(Pins.Length + "hi");
 
 		for (int i = 0; i < Pins.Length; i++)
 		{
@@ -25,19 +24,17 @@ public class MapManager : MonoBehaviour
 			{
 				Pins[i].isRed = false;
 				Pins[i].isGreen = true;
-						Debug.Log(i+"owo");
 			}
 			else if (i == levelComp)
 			{	
 				Pins[i].isGreen = false;
 				Pins[i].isRed = true;
-						Debug.Log(i+"douch");
 			}
 			else 
 			{
 				Pins[i].isGreen = false;
 				Pins[i].isRed = false;
-						Debug.Log(i+"dumb");
+
 			}
 
 		}
@@ -86,11 +83,21 @@ public class MapManager : MonoBehaviour
 		// Only load level if it is accessible to the player
 		else if(Input.GetKeyUp(KeyCode.Space))
 		{
-			if(Character.CurrentPin.isGreen || Character.CurrentPin.isRed)
+			if(Character.CurrentPin.isGreen)
 			{
+				PlayerPrefs.SetInt("curLevel", 0);
+				SceneManager.LoadScene(Character.CurrentPin.SceneToLoad);
+			}
+			if(Character.CurrentPin.isRed)
+			{
+				PlayerPrefs.SetInt("curLevel", 1);
 				SceneManager.LoadScene(Character.CurrentPin.SceneToLoad);
 			}
 			
+		}
+		else if(Input.GetKeyUp(KeyCode.Escape))
+		{
+			SceneManager.LoadScene("MainMenu");
 		}
 	}
 

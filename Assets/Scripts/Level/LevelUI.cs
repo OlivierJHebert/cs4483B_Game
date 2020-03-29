@@ -14,14 +14,12 @@ public class LevelUI : MonoBehaviour
 
     void Start() {
         playerHealth = player.GetComponent<PlayerHealth>();
-        PlayerPrefs.SetInt("HP", 4);
     }
 
     void Update()
     {
         maxHearts = PlayerPrefs.GetInt("HP");
         HPCurrent = playerHealth.getHealth();
-        Debug.Log(HPCurrent);
         currentHearts = HPCurrent / 4;
         partialHeart = HPCurrent % 4;
 

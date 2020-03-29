@@ -11,7 +11,7 @@ public class PlayerHealth : Health
     protected override void Start()
     {
         int stat_HP = PlayerPrefs.GetInt("HP");
-        maxHealth += stat_HP * 4;
+        maxHealth = stat_HP * 4;
 
         if(stat_HP < 5)
         {

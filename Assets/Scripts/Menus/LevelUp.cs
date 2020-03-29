@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelUp : MonoBehaviour {
 
@@ -43,6 +44,11 @@ public class LevelUp : MonoBehaviour {
             PlayerPrefs.SetInt("points", points-1);
         }        
     } 
+
+    public void ConfirmButton() 
+    {
+        SceneManager.LoadScene(sceneName: "Level Select");
+    }
 
     public void allocatePoint(string stat) {
         if (string.Compare("HP", stat) == 0 && HP < 5) {

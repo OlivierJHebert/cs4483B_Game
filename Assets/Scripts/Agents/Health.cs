@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
 
     protected virtual void Update()
     {
+        Debug.Log("health: " + health.ToString());
         if (health <= 0)
         {
             Kill();
@@ -54,5 +55,9 @@ public class Health : MonoBehaviour
         }
 
         moveController.knockback(right, damage > 0);
+    }
+
+    public virtual int getHealth() {
+        return (int)health;
     }
 }

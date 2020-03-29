@@ -23,6 +23,18 @@ public class MovingEnemy : PlayerHazardCollider, IMove
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, patrolSpeed * Time.deltaTime);
+
+        // Loop the top and bottom sides of the stage
+        if (transform.position.y > 11) // Top
+            transform.position = new Vector2(transform.position.x, -11);
+        else if (m_body.position.y < -11) // Bottom
+            transform.position = new Vector2(transform.position.x, 11);
+
+        // Loop the left and right sides of the stage
+        if (transform.position.x < -20) // Left
+            transform.position = new Vector2(18, transform.position.y);
+        else if (transform.position.x > 18) // Right
+            transform.position = new Vector2(-20, transform.position.y);
     }
 
     protected override void OnCollisionEnter2D(Collision2D other)

@@ -24,10 +24,6 @@ public class PlayerMove : MonoBehaviour, IMove
     public float dashCooldown = 10f;
     private float timeNextDash = 0.0f;//the timestamp beyond which the player may dash again
 
-    //leap ability parameters
-    public float leapStrength = 2f;
-    private bool leaping = false;//1 when true, 0 when false
-
     //player shapeshift state parameters
     private PlayerAttack attackScript;
     private Form currentForm;
@@ -102,7 +98,7 @@ public class PlayerMove : MonoBehaviour, IMove
         /**********  Jumping  **********/
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded() || (doubleJumping == false && PlayerPrefs.GetInt("speed") >= 3)))
         {
-            m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
+            m_body.velocity = Vector2.up * currJumpStrength;
             if (!isGrounded()) doubleJumping = true;
             else
             {
@@ -118,21 +114,19 @@ public class PlayerMove : MonoBehaviour, IMove
         {
             if(jumpTimeCounter > 0)
             {
-                m_body.velocity = new Vector2(m_body.velocity.x, currJumpStrength + (leaping ? leapStrength : 0));
+                m_body.velocity = new Vector2(m_body.velocity.x, currJumpStrength);
                 jumpTimeCounter -= Time.deltaTime;
             }
 
             else
             {
                 isJumping = false;
-                leaping = false;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
-            leaping = false;
         }
         
         if(m_body.velocity.y < 0 && currentForm == plainForm)//increase gravity during fall
@@ -198,14 +192,7 @@ public class PlayerMove : MonoBehaviour, IMove
         }
 
         /**********  Abilities  **********/
-        //remove leaping??
-        else if (Input.GetKeyDown(KeyCode.X) && !leaping && currentForm != flatForm)//tap S to enter leap state
-        {
-            leaping = true;
-            m_spriteRenderer.color = new Color(0,0,0,alpha);//leapingSpriteColor;
-        }
-
-        else if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
+        if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
         {
             if (Time.time >= timeNextDash && isGrounded() && PlayerPrefs.GetInt("speed") >= 5)
             {

@@ -61,7 +61,7 @@ public class Patrol : PlayerHazardCollider, IMove
         Debug.Log("Trigger Water Effect!");
     }
 
-    public void knockback(bool right)
+    public void knockback(bool right, bool damaged)
     {
         // Start the knockback timer
         knockbackTimer = 0.3f;

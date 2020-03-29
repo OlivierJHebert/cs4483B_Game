@@ -5,10 +5,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     //death manager reference
-    public float maxHealth = 10;
+    public float maxHealth = 4;
     private float health;
-    public float fireResist = 5;
-    public float waterResist = -5;
+    public float fireResist = 2;
+    public float waterResist = -2;
     private float statusBuildup = 0;
 
     private IMove moveController;
@@ -53,6 +53,6 @@ public class Health : MonoBehaviour
             moveController.TriggerWaterEffect(1);
         }
 
-        moveController.knockback(right);
+        moveController.knockback(right, damage > 0);
     }
 }

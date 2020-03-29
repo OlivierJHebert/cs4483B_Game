@@ -1899,22 +1899,7 @@ PrefabInstance:
     - target: {fileID: 6392639349641588882, guid: d2de977ef3a56df4e8c6b9083a008321,
         type: 3}
       propertyPath: HP
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392639349641588882, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: attack
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392639349641588882, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6392639349641588882, guid: d2de977ef3a56df4e8c6b9083a008321,
-        type: 3}
-      propertyPath: magic
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}

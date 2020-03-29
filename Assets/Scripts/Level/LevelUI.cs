@@ -5,15 +5,19 @@ using UnityEngine.UI;
 
 public class LevelUI : MonoBehaviour
 {
-    public int HPCurrent, currentHearts, partialHeart, maxHearts, attack, speed, magic;
+    public int HPCurrent, currentHearts, partialHeart, maxHearts, attack, speed, magic, magicPool;
     public GameObject player;
     private PlayerHealth playerHealth;
-    public Text attackText, speedText, magicText;
+    private PlayerAttack playerAttack;
+    public Text attackText, speedText;
     public Image[] hearts;
     public Sprite fullHeart, emptyHeart, quarterHeart, halfHeart, threequarterHeart;
+    public Image[] magicPts;
+    public Sprite fullMagic, emptyMagic;
 
     void Start() {
         playerHealth = player.GetComponent<PlayerHealth>();
+        playerAttack = player.GetComponent<PlayerAttack>();
     }
 
     void Update()
@@ -39,20 +43,25 @@ public class LevelUI : MonoBehaviour
             }
             else hearts[i].sprite = emptyHeart;
 
-            if (i < maxHearts) {
-                hearts[i].enabled = true;
-            } else {
-                hearts[i].enabled = false;
-                break;
-            }
+            if (i < maxHearts) hearts[i].enabled = true;
+            else hearts[i].enabled = false;
         }
 
         attack = PlayerPrefs.GetInt("attack");
         speed = PlayerPrefs.GetInt("speed");
-        magic = PlayerPrefs.GetInt("magic");
 
         attackText.text = "Attack: " + attack.ToString();
         speedText.text = "Speed: " + speed.ToString();
-        magicText.text = "Magic: " + magic.ToString();
+
+        magic = PlayerPrefs.GetInt("magic");
+        magicPool = playerAttack.getMagicPool();
+        for (int j = 0; j < magicPts.Length; j++) {
+            if (j < magicPool) magicPts[j].sprite = fullMagic;
+            else magicPts[j].sprite = emptyMagic;
+
+            if (j < magic) magicPts[j].enabled = true;
+            else magicPts[j].enabled = false;
+        }
+
     }
 }

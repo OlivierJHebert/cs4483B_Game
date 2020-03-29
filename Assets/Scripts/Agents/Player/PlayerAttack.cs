@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         float stat_Magic = PlayerPrefs.GetInt("magic");
-        maxMagicPool += stat_Magic;
+        maxMagicPool = stat_Magic;
         magicPool = maxMagicPool;
 
         if (PlayerPrefs.GetInt("attack") >= 3)
@@ -93,6 +93,11 @@ public class PlayerAttack : MonoBehaviour
     public void drainMagicPool()
     {
         magicPool--;
+    }
+
+    public int getMagicPool()
+    {
+        return (int)magicPool;
     }
 
 }

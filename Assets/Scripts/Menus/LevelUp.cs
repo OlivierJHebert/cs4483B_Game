@@ -66,8 +66,8 @@ public class LevelUp : MonoBehaviour {
     }
 
     void Start() {
+        PlayerPrefs.SetInt("points", 4);
         //temporary:
-        //PlayerPrefs.SetInt("points", 5);
         //PlayerPrefs.SetInt("HP", 1); 
         //PlayerPrefs.SetInt("attack", 1);
         //PlayerPrefs.SetInt("speed", 3);

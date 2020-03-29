@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour, IMove
     // Knockback parameters
     private float knockbackTimer = 0;
     private float alpha = 1.0f;
+    private bool damagingKnockback = false;
     
     //jumping parameters
     public float maxJumpTime;//the maximum time for which holding down 'jump' increases jump height
@@ -83,8 +84,11 @@ public class PlayerMove : MonoBehaviour, IMove
         {
             knockbackTimer -= Time.deltaTime;
 
-            // Flash player sprite to indicate invincibility
-            alpha = ((alpha == 1) ? 0 : 1);
+            // Flash player sprite to indicate invincibility if damaged by knockback
+            if (damagingKnockback == true)
+            {
+                alpha = ((alpha == 1) ? 0 : 1);
+            }
         }
         else
         {
@@ -231,10 +235,12 @@ public class PlayerMove : MonoBehaviour, IMove
         slowedTimer += time;
     }
 
-    public void knockback(bool right)
+    public void knockback(bool right, bool damaged)
     {
         // Start the knockback timer
         knockbackTimer = 0.8f;
+
+        damagingKnockback = damaged;//store if damaged
 
         // Knock the player away from the source of damage
         int direction = (right ? 5 : -5);

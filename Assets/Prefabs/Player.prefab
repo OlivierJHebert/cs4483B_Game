@@ -280,10 +280,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f78a10c276b2f0540a9e272f088d4b73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  fireResist: 5
-  waterResist: -5
+  maxHealth: 4
+  fireResist: 2
+  waterResist: -2
   playerDeathManager: {fileID: 0}
+  isBlocking: 0
+  blockCooldown: 5
 --- !u!114 &6392639349641588882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,9 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa17458b3d8701489e942530e1e6bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMagicPool: 1
   attackCooldown: 0.3
   attackRange: 1
-  damage: 5
+  damage: 1
   attackPosSide: {fileID: 2207547067214623534}
   attackPosUp: {fileID: 2518987258557862062}
   attackPosDown: {fileID: 3454983591685841653}

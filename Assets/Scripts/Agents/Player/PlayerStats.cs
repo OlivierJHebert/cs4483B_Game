@@ -9,10 +9,10 @@ public class PlayerStats : MonoBehaviour {
     public int magic;
     
     void Start() {
-        PlayerPrefs.SetInt("HP", HP);
-        PlayerPrefs.SetInt("attack", attack);
-        PlayerPrefs.SetInt("speed", speed);
-        PlayerPrefs.SetInt("magic", magic);
+        //PlayerPrefs.SetInt("HP", HP);
+        //PlayerPrefs.SetInt("attack", attack);
+        //PlayerPrefs.SetInt("speed", speed);
+        //PlayerPrefs.SetInt("magic", magic);
 
         /* Loading stats from PlayerPrefs commented for testing
         if (PlayerPrefs.HasKey("HP")) {

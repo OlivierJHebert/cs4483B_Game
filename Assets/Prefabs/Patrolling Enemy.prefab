@@ -145,10 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c217a9cf1ec3547bdaf2312d86cc26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
-  displayImageDuration: 1
   player: {fileID: 2409010841050604385, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}
-  killedImageCanvasGroup: {fileID: 0}
+  damage: 2
   patrolSpeed: 5
   distance: 3
   platformsLayerMask:
@@ -167,9 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e0c34bf35e3c5479e39831445f45d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  fireResist: 5
-  waterResist: -5
+  maxHealth: 2
+  fireResist: 2
+  waterResist: -2
 --- !u!1 &8434441682514996057
 GameObject:
   m_ObjectHideFlags: 0

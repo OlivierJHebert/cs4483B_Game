@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: test
+  SceneToLoad: Level3_Fire
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1594292018}
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: Level1
+  SceneToLoad: Level1_Basics
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1492937566}
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: test2
+  SceneToLoad: SampleScene
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1366357333}
@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: SampleScene
+  SceneToLoad: Level2_Updraft
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 0}

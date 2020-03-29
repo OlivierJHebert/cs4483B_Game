@@ -161,10 +161,10 @@ public class PlayerMove : MonoBehaviour, IMove
             m_body.position = new Vector2(m_body.position.x, 11);
 
         // Loop the left and right sides of the stage
-        if (m_body.position.x < -20) // Left
-            m_body.position = new Vector2(18, m_body.position.y);
-        else if (m_body.position.x > 18) // Right
-            m_body.position = new Vector2(-20, m_body.position.y);
+        if (m_body.position.x < -15) // Left
+            m_body.position = new Vector2(15, m_body.position.y);
+        else if (m_body.position.x > 15) // Right
+            m_body.position = new Vector2(-15, m_body.position.y);
 
         /**********  Changing Forms  **********/
         //tap the 1 key to enter PlainForm

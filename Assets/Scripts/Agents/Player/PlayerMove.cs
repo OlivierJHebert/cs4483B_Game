@@ -118,7 +118,7 @@ public class PlayerMove : MonoBehaviour, IMove
         {
             if(jumpTimeCounter > 0)
             {
-                m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
+                m_body.velocity = new Vector2(m_body.velocity.x, currJumpStrength + (leaping ? leapStrength : 0));
                 jumpTimeCounter -= Time.deltaTime;
             }
 
@@ -145,7 +145,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //Input.GetAxis(...) for smooth movement, Input.GetAxisRaw(...) for snappy movement
         float walkInput = Input.GetAxis("Horizontal");
 
-        if (knockbackTimer < 0.5f)
+        if (knockbackTimer < 0.5f && ( currentForm != ballForm || isGrounded() ))
             m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
 
         //player facing (flips according to horizontal input)
@@ -175,6 +175,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //tap the 1 key to enter PlainForm
         if (Input.GetKeyDown(KeyCode.Alpha1) && currentForm != plainForm)
         {
+            attackScript.IsTransformed = false;//enable attacks
             shapeshift(plainForm);
         }
         
@@ -182,6 +183,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //floats, moves slowly, short jump
         else if(Input.GetKeyDown(KeyCode.Alpha2) && PlayerPrefs.GetInt("magic") >= 3 && attackScript.isMagicPoolEmpty() == false && currentForm != flatForm)
         {
+            attackScript.IsTransformed = true;//disable attacks
             attackScript.drainMagicPool();
             shapeshift(flatForm);
         }
@@ -190,6 +192,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //bounces, moves quickly
         else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerPrefs.GetInt("magic") >= 5 && attackScript.isMagicPoolEmpty() == false && currentForm != ballForm)
         {
+            attackScript.IsTransformed = true;//disable attacks
             attackScript.drainMagicPool();
             shapeshift(ballForm);
         }

@@ -26,8 +26,10 @@ public class MovingEnemy : PlayerHazardCollider, IMove
     private void Update()
     {
 
+        if (player.transform.position.x > m_body.position.x || player.transform.position.x < m_body.position.x)
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, patrolSpeed * Time.deltaTime);
 
-        if (player.transform.position.y - 5 > m_body.position.y)
+        if (player.transform.position.y > m_body.position.y && player.transform.position.y < m_body.position.y + 4)
         {
             isJumping = true;
             jumpTimeCounter = maxJumpTime;
@@ -41,13 +43,11 @@ public class MovingEnemy : PlayerHazardCollider, IMove
                 isJumping = false;
             }
         }
-
         if (m_body.velocity.y < 0)//increase gravity during fall
         {
             m_body.velocity += Vector2.up * Physics2D.gravity.y * (fallFactor - 1) * Time.deltaTime;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, patrolSpeed * Time.deltaTime);
 
         // Loop the top and bottom sides of the stage
         if (transform.position.y > 11) // Top

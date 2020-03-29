@@ -55,7 +55,7 @@ public class Patrol : PlayerHazardCollider, IMove
         if(other.gameObject == player && !player.GetComponent<PlayerMove>().invincible())
         {
             bool right = (player.GetComponent<Rigidbody2D>().position.x > m_body.position.x);
-            player.GetComponent<Health>().takeDamage(damage, right);
+            player.GetComponent<Health>().takeDamage(damage, right, damageType);
         }
     }
 

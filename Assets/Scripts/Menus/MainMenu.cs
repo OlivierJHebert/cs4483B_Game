@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("levelComp", 0);
         PlayerPrefs.SetInt("points", 0);
-        PlayerPrefs.SetInt("HP", 12);
+        PlayerPrefs.SetInt("HP", 1);
         PlayerPrefs.SetInt("magic", 1);
         PlayerPrefs.SetInt("attack", 1);
         PlayerPrefs.SetInt("speed", 1);

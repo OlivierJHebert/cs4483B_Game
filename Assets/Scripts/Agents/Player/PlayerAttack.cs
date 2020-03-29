@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackCooldown;//time between successful attack requests
     public float attackRange;//radius of attack circle
     public float damage;
+    public bool IsTransformed { get; set; }
 
     [SerializeField] private Transform attackPosSide, attackPosUp, attackPosDown;
     private Transform currAttackPos = null;
@@ -20,7 +21,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         float stat_Magic = PlayerPrefs.GetInt("magic");
-        maxMagicPool += stat_Magic;
+        maxMagicPool = stat_Magic;
         magicPool = maxMagicPool;
 
         if (PlayerPrefs.GetInt("attack") >= 3)
@@ -33,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if(attackDelay <= 0)
+        if(attackDelay <= 0 && IsTransformed == false)
         {
             //You can attack!
             if (Input.GetKeyDown(KeyCode.Z))
@@ -93,6 +94,11 @@ public class PlayerAttack : MonoBehaviour
     public void drainMagicPool()
     {
         magicPool--;
+    }
+
+    public int getMagicPool()
+    {
+        return (int)magicPool;
     }
 
 }

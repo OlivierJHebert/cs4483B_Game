@@ -24,10 +24,6 @@ public class PlayerMove : MonoBehaviour, IMove
     public float dashCooldown = 10f;
     private float timeNextDash = 0.0f;//the timestamp beyond which the player may dash again
 
-    //leap ability parameters
-    public float leapStrength = 2f;
-    private bool leaping = false;//1 when true, 0 when false
-
     //player shapeshift state parameters
     private PlayerAttack attackScript;
     private Form currentForm;
@@ -70,6 +66,7 @@ public class PlayerMove : MonoBehaviour, IMove
 
         if (slowedTimer > 0)
         {
+            Debug.Log("Player is Slowed!");
             slowedTimer -= Time.deltaTime;
             currJumpStrength *= 0.5f;
             currWalkSpeed *= 0.5f;
@@ -102,7 +99,7 @@ public class PlayerMove : MonoBehaviour, IMove
         /**********  Jumping  **********/
         if (Input.GetKeyDown(KeyCode.Space) && (isGrounded() || (doubleJumping == false && PlayerPrefs.GetInt("speed") >= 3)))
         {
-            m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
+            m_body.velocity = Vector2.up * currJumpStrength;
             if (!isGrounded()) doubleJumping = true;
             else
             {
@@ -118,21 +115,19 @@ public class PlayerMove : MonoBehaviour, IMove
         {
             if(jumpTimeCounter > 0)
             {
-                m_body.velocity = Vector2.up * (currJumpStrength + (leaping ? leapStrength : 0));
+                m_body.velocity = new Vector2(m_body.velocity.x, currJumpStrength);
                 jumpTimeCounter -= Time.deltaTime;
             }
 
             else
             {
                 isJumping = false;
-                leaping = false;
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
-            leaping = false;
         }
         
         if(m_body.velocity.y < 0 && currentForm == plainForm)//increase gravity during fall
@@ -145,7 +140,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //Input.GetAxis(...) for smooth movement, Input.GetAxisRaw(...) for snappy movement
         float walkInput = Input.GetAxis("Horizontal");
 
-        if (knockbackTimer < 0.5f)
+        if (knockbackTimer < 0.5f && ( currentForm != ballForm || isGrounded() ))
             m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
 
         //player facing (flips according to horizontal input)
@@ -175,6 +170,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //tap the 1 key to enter PlainForm
         if (Input.GetKeyDown(KeyCode.Alpha1) && currentForm != plainForm)
         {
+            attackScript.IsTransformed = false;//enable attacks
             shapeshift(plainForm);
         }
         
@@ -182,6 +178,7 @@ public class PlayerMove : MonoBehaviour, IMove
         //floats, moves slowly, short jump
         else if(Input.GetKeyDown(KeyCode.Alpha2) && PlayerPrefs.GetInt("magic") >= 3 && attackScript.isMagicPoolEmpty() == false && currentForm != flatForm)
         {
+            attackScript.IsTransformed = true;//disable attacks
             attackScript.drainMagicPool();
             shapeshift(flatForm);
         }
@@ -190,19 +187,13 @@ public class PlayerMove : MonoBehaviour, IMove
         //bounces, moves quickly
         else if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerPrefs.GetInt("magic") >= 5 && attackScript.isMagicPoolEmpty() == false && currentForm != ballForm)
         {
+            attackScript.IsTransformed = true;//disable attacks
             attackScript.drainMagicPool();
             shapeshift(ballForm);
         }
 
         /**********  Abilities  **********/
-        //remove leaping??
-        else if (Input.GetKeyDown(KeyCode.X) && !leaping && currentForm != flatForm)//tap S to enter leap state
-        {
-            leaping = true;
-            m_spriteRenderer.color = new Color(0,0,0,alpha);//leapingSpriteColor;
-        }
-
-        else if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
+        if (Input.GetKeyDown(KeyCode.C))//tap S to dash in the direction you're moving
         {
             if (Time.time >= timeNextDash && isGrounded() && PlayerPrefs.GetInt("speed") >= 5)
             {

@@ -12,8 +12,11 @@ public class MovingEnemy : PlayerHazardCollider, IMove
     [SerializeField] private LayerMask platformsLayerMask;
     public Transform groundDetection;
     private Rigidbody2D m_body;
-
-    public 
+    private bool isJumping = false;
+    private float jumpTimeCounter = 0;
+    public float currJumpStrength = 21f;
+    public float maxJumpTime = 0.17f;
+    public float fallFactor = 2;
 
     void Start()
     {
@@ -22,7 +25,29 @@ public class MovingEnemy : PlayerHazardCollider, IMove
 
     private void Update()
     {
+
+        if (player.transform.position.x > m_body.position.x || player.transform.position.x < m_body.position.x)
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, patrolSpeed * Time.deltaTime);
+
+        if (player.transform.position.y > m_body.position.y && player.transform.position.y < m_body.position.y + 4)
+        {
+            isJumping = true;
+            jumpTimeCounter = maxJumpTime;
+            if (jumpTimeCounter > 0 && isJumping)
+            {
+                m_body.velocity = new Vector2(m_body.velocity.x, currJumpStrength);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                isJumping = false;
+            }
+        }
+        if (m_body.velocity.y < 0)//increase gravity during fall
+        {
+            m_body.velocity += Vector2.up * Physics2D.gravity.y * (fallFactor - 1) * Time.deltaTime;
+        }
+
 
         // Loop the top and bottom sides of the stage
         if (transform.position.y > 11) // Top

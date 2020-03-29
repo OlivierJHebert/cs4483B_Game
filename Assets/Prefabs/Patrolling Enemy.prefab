@@ -147,8 +147,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2409010841050604385, guid: d2de977ef3a56df4e8c6b9083a008321, type: 3}
   damage: 2
-  patrolSpeed: 5
-  distance: 3
+  damageType: 0
+  patrolSpeed: 3
+  distance: 0.3
   platformsLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -168,6 +169,8 @@ MonoBehaviour:
   maxHealth: 2
   fireResist: 2
   waterResist: -2
+  burnDuration: 3
+  damageInterval: 3
 --- !u!1 &8434441682514996057
 GameObject:
   m_ObjectHideFlags: 0

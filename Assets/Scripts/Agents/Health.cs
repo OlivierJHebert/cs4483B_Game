@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     private float burnTimer = 0;
     public float damageInterval = 3;
     private float damageTimer = 0;
+    public float waterEffectDuration = 3;
 
     private IMove moveController;
     protected virtual void Start()
@@ -74,7 +75,7 @@ public class Health : MonoBehaviour
         else if (statusBuildup <= waterResist)
         {
             //slow agent for a time (idea: time determined by overflow)
-            moveController.TriggerWaterEffect(3);
+            moveController.TriggerWaterEffect(waterEffectDuration);
             statusBuildup = 0;
         }
 

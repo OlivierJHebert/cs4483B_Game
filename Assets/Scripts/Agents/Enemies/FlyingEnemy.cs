@@ -39,6 +39,7 @@ public class FlyingEnemy : PlayerHazardCollider, IMove
 
     protected override void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log(other);
         if (other.gameObject == player && !player.GetComponent<PlayerMove>().invincible())
         {
             bool right = (player.GetComponent<Rigidbody2D>().position.x > m_body.position.x);

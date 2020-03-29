@@ -84,4 +84,16 @@ public class Health : MonoBehaviour
     public virtual int getHealth() {
         return (int)health;
     }
+
+    public int getStatusBuildup() {
+        return (int)statusBuildup;
+    }
+
+    public int getWaterResist() {
+        return (int)waterResist;
+    }
+
+    public int getFireResist() {
+        return (int)fireResist;
+    }
 }

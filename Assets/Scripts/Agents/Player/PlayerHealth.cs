@@ -21,7 +21,7 @@ public class PlayerHealth : Health
 
         else
         {
-            waterResist = maxHealth / 2;
+            waterResist = -1*(maxHealth / 2);
             fireResist = maxHealth / 2;
         }
 

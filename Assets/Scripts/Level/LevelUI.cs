@@ -4,20 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelUI : MonoBehaviour
-{
-    public int HPCurrent, currentHearts, partialHeart, maxHearts, attack, speed, magic, magicPool;
-    public GameObject player;
+{   public GameObject player;
+
+    public int HPCurrent, currentHearts, partialHeart, maxHearts;
     private PlayerHealth playerHealth;
-    private PlayerAttack playerAttack;
-    public Text attackText, speedText;
     public Image[] hearts;
     public Sprite fullHeart, emptyHeart, quarterHeart, halfHeart, threequarterHeart;
+
+    public int attack, speed;
+    public Text attackText, speedText;
+    
+    public int magic, magicPool;
+    private PlayerAttack playerAttack;
     public Image[] magicPts;
     public Sprite fullMagic, emptyMagic;
+    
+    public int statusBuildup, fireResist, waterResist;
+    public Slider slider;
+    
 
     void Start() {
         playerHealth = player.GetComponent<PlayerHealth>();
         playerAttack = player.GetComponent<PlayerAttack>();
+        fireResist = playerHealth.getFireResist();
+        waterResist = playerHealth.getWaterResist();
+        slider.minValue = waterResist;
+        slider.maxValue = fireResist;
+        slider.value = 0;
     }
 
     void Update()
@@ -63,5 +76,7 @@ public class LevelUI : MonoBehaviour
             else magicPts[j].enabled = false;
         }
 
+        statusBuildup = playerHealth.getStatusBuildup();
+        slider.value = statusBuildup;
     }
 }

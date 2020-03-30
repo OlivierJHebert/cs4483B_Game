@@ -2481,7 +2481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: test4
+  SceneToLoad: Main Menu
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 0}

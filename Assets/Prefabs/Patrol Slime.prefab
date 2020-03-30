@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8434441681239506017}
   - component: {fileID: 8434441681239506016}
   - component: {fileID: 4419349080234772198}
+  - component: {fileID: 8719533039273779521}
   m_Layer: 9
   m_Name: Patrol Slime
   m_TagString: Untagged
@@ -172,6 +173,25 @@ MonoBehaviour:
   burnDuration: 3
   damageInterval: 3
   waterEffectDuration: 3
+--- !u!95 &8719533039273779521
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434441681239506031}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a438d915fe157bbbb9852e08aee6c07b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8434441682514996057
 GameObject:
   m_ObjectHideFlags: 0

@@ -557,6 +557,7 @@ GameObject:
   - component: {fileID: 438028050}
   - component: {fileID: 438028052}
   - component: {fileID: 438028051}
+  - component: {fileID: 438028053}
   m_Layer: 0
   m_Name: Level Pin 3
   m_TagString: Untagged
@@ -649,6 +650,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &438028053
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438028049}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &448186161
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +884,7 @@ GameObject:
   - component: {fileID: 459380742}
   - component: {fileID: 459380741}
   - component: {fileID: 459380740}
+  - component: {fileID: 459380743}
   m_Layer: 0
   m_Name: Waypoint Pin (3)
   m_TagString: Untagged
@@ -956,6 +977,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &459380743
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459380739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &529583948
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1216,7 @@ GameObject:
   - component: {fileID: 1146339643}
   - component: {fileID: 1146339642}
   - component: {fileID: 1146339641}
+  - component: {fileID: 1146339644}
   m_Layer: 0
   m_Name: Waypoint Pin (1)
   m_TagString: Untagged
@@ -1268,6 +1309,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1146339644
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146339640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1182074728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,6 +1339,7 @@ GameObject:
   - component: {fileID: 1182074729}
   - component: {fileID: 1182074731}
   - component: {fileID: 1182074730}
+  - component: {fileID: 1182074732}
   m_Layer: 0
   m_Name: Level Pin 7
   m_TagString: Untagged
@@ -1371,6 +1432,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1182074732
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182074728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1206662142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,6 +1543,7 @@ GameObject:
   - component: {fileID: 1220725976}
   - component: {fileID: 1220725975}
   - component: {fileID: 1220725974}
+  - component: {fileID: 1220725977}
   m_Layer: 0
   m_Name: Level Pin 5
   m_TagString: Untagged
@@ -1555,6 +1636,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1220725977
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220725973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1281524525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1782,7 @@ GameObject:
   - component: {fileID: 1366357335}
   - component: {fileID: 1366357334}
   - component: {fileID: 1366357333}
+  - component: {fileID: 1366357336}
   m_Layer: 0
   m_Name: Waypoint Pin
   m_TagString: Untagged
@@ -1774,6 +1875,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1366357336
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366357332}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1447090198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1905,7 @@ GameObject:
   - component: {fileID: 1447090201}
   - component: {fileID: 1447090200}
   - component: {fileID: 1447090199}
+  - component: {fileID: 1447090202}
   m_Layer: 0
   m_Name: Waypoint Pin
   m_TagString: Untagged
@@ -1877,6 +1998,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1447090202
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447090198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1467555970
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +2127,7 @@ GameObject:
   - component: {fileID: 1492937568}
   - component: {fileID: 1492937567}
   - component: {fileID: 1492937566}
+  - component: {fileID: 1492937569}
   m_Layer: 0
   m_Name: Waypoint Pin (2)
   m_TagString: Untagged
@@ -2079,6 +2220,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1492937569
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492937565}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1515413027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2250,7 @@ GameObject:
   - component: {fileID: 1515413028}
   - component: {fileID: 1515413030}
   - component: {fileID: 1515413029}
+  - component: {fileID: 1515413031}
   m_Layer: 0
   m_Name: Level Pin 4
   m_TagString: Untagged
@@ -2182,6 +2343,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1515413031
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515413027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1519425974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,6 +2555,7 @@ GameObject:
   - component: {fileID: 1594292020}
   - component: {fileID: 1594292019}
   - component: {fileID: 1594292018}
+  - component: {fileID: 1594292021}
   m_Layer: 0
   m_Name: Level Pin 2
   m_TagString: Untagged
@@ -2467,6 +2648,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1594292021
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594292017}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1598773794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2520,6 +2720,7 @@ GameObject:
   - component: {fileID: 1601697430}
   - component: {fileID: 1601697429}
   - component: {fileID: 1601697428}
+  - component: {fileID: 1601697431}
   m_Layer: 0
   m_Name: Level Pin 6
   m_TagString: Untagged
@@ -2612,6 +2813,25 @@ Transform:
   m_Father: {fileID: 1598773795}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1601697431
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601697427}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 136cf15ac92d4501b83b42f5fd4bd5d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1898944913
 GameObject:
   m_ObjectHideFlags: 0

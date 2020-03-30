@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8324829647839414287}
   - component: {fileID: 4191534695237012254}
   - component: {fileID: 1623468575449603702}
+  - component: {fileID: 1407248852551190381}
   m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
@@ -124,3 +125,22 @@ MonoBehaviour:
   player: {fileID: 0}
   damage: 1
   damageType: 0
+--- !u!95 &1407248852551190381
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6708419398900249144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d4ffb6e1d9191f10aa6fe1d912139d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

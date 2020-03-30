@@ -592,7 +592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: Level3_Fire
+  SceneToLoad: Level3_Fire_temp
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1594292018}
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: Level1
+  SceneToLoad: level4_fire
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1601697428}
@@ -2085,7 +2085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: SampleScene
+  SceneToLoad: level3_Water
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1366357333}

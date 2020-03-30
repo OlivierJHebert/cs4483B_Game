@@ -8,16 +8,14 @@ public class LevelUI : MonoBehaviour
 
     public int HPCurrent, currentHearts, partialHeart, maxHearts;
     private PlayerHealth playerHealth;
-    public Image[] hearts;
-    public Sprite fullHeart, emptyHeart, quarterHeart, halfHeart, threequarterHeart;
+    public GameObject[] hearts;
 
     public int attack, speed;
     public Text attackText, speedText;
     
     public int magic, magicPool;
     private PlayerAttack playerAttack;
-    public Image[] magicPts;
-    public Sprite fullMagic, emptyMagic;
+    public GameObject[] magicPts;
     
     public int statusBuildup, fireResist, waterResist;
     public Slider slider;
@@ -31,33 +29,39 @@ public class LevelUI : MonoBehaviour
         slider.minValue = waterResist;
         slider.maxValue = fireResist;
         slider.value = 0;
+
+        maxHearts = PlayerPrefs.GetInt("HP");
+        magic = PlayerPrefs.GetInt("magic");
+
+        // Remove unused hearts
+        for (int i = maxHearts; i < hearts.Length; i++)
+            Destroy(hearts[i]);
+
+        // Remove unused magic
+        for (int i = magic; i < magicPts.Length; i++)
+            Destroy(hearts[i]);
     }
 
     void Update()
     {
-        maxHearts = PlayerPrefs.GetInt("HP");
         HPCurrent = playerHealth.getHealth();
         currentHearts = HPCurrent / 4;
         partialHeart = HPCurrent % 4;
 
-        for (int i = 0; i < hearts.Length; i++) {
-            if (i < currentHearts) hearts[i].sprite = fullHeart;
-            else if (partialHeart == 1) {
-                hearts[i].sprite = quarterHeart;
-                partialHeart = 0;
-            }
-            else if (partialHeart == 2) {
-                hearts[i].sprite = halfHeart;
-                partialHeart = 0;
-            }
-            else if (partialHeart == 3) {
-                hearts[i].sprite = threequarterHeart;
-                partialHeart = 0;
-            }
-            else hearts[i].sprite = emptyHeart;
+        // Update health sprites
+        for (int i = 0; i < maxHearts; i++)
+        {
+            Animator anim = hearts[i].GetComponent<Animator>();
 
-            if (i < maxHearts) hearts[i].enabled = true;
-            else hearts[i].enabled = false;
+            if (i < currentHearts)
+            {
+                anim.SetInteger("Health", 4);
+            }
+            else
+            {
+                anim.SetInteger("Health", partialHeart);
+                partialHeart = 0;
+            }
         }
 
         attack = PlayerPrefs.GetInt("attack");
@@ -66,14 +70,15 @@ public class LevelUI : MonoBehaviour
         attackText.text = "Attack: " + attack.ToString();
         speedText.text = "Speed: " + speed.ToString();
 
-        magic = PlayerPrefs.GetInt("magic");
         magicPool = playerAttack.getMagicPool();
-        for (int j = 0; j < magicPts.Length; j++) {
-            if (j < magicPool) magicPts[j].sprite = fullMagic;
-            else magicPts[j].sprite = emptyMagic;
 
-            if (j < magic) magicPts[j].enabled = true;
-            else magicPts[j].enabled = false;
+        // Update magic sprites
+        for (int i = 0; i < magicPts.Length; i++)
+        {
+            Animator anim = magicPts[i].GetComponent<Animator>();
+
+            if (i >= magicPool)
+                anim.SetBool("Full", false);
         }
 
         statusBuildup = playerHealth.getStatusBuildup();

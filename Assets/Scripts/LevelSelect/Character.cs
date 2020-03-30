@@ -10,12 +10,14 @@ public class Character : MonoBehaviour
     private MapManager _mapManager;
 
     private Animator anim;
+    private SpriteRenderer sprite;
     
     public void Initialise(MapManager mapManager, Pin startPin)
     {
         _mapManager = mapManager;
         SetCurrentPin(startPin);
         anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
     
     
@@ -38,6 +40,9 @@ public class Character : MonoBehaviour
                 0.03f * Speed
             );
             anim.SetBool("IsRunning", true);
+
+            // Flip the character to face the direction they're running
+            sprite.flipX = (currentPosition.x > targetPosition.x);
         }
         else
         {

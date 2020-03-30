@@ -1025,7 +1025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -20}
+  m_AnchoredPosition: {x: 402.1, y: -39.699997}
   m_SizeDelta: {x: 250, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &869733589
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8000001, g: 0.8000001, b: 0.8000001, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: 
+  SceneToLoad: Main Menu
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1146339641}
@@ -1462,9 +1462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fc3d5a84523e94cbddf412288e57e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsAutomatic: 0
-  HideIcon: 0
-  SceneToLoad: level4_fire
+  IsAutomatic: 1
+  HideIcon: 1
+  SceneToLoad: 
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1601697428}
@@ -1546,6 +1546,7 @@ GameObject:
   - component: {fileID: 1281524527}
   - component: {fileID: 1281524526}
   - component: {fileID: 1281524528}
+  - component: {fileID: 1281524529}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1631,6 +1632,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
+--- !u!95 &1281524529
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281524525}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e78b7b978ecbb8146bede7a60234eba1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1366357332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,7 +2105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: level3_Water
+  SceneToLoad: Level3_Water
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 1366357333}
@@ -2233,6 +2253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1592971625}
   - component: {fileID: 1592971624}
+  - component: {fileID: 1592971626}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -2304,6 +2325,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1592971626
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592971623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c03f0c090a6a1c34687c4d68fa7d755c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1594292017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,7 +2521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsAutomatic: 0
   HideIcon: 0
-  SceneToLoad: Main Menu
+  SceneToLoad: Level4_Fire
   isGreen: 0
   isRed: 0
   UpPin: {fileID: 0}

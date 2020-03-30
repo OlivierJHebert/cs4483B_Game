@@ -9,11 +9,13 @@ public class Character : MonoBehaviour
     private Pin _targetPin;
     private MapManager _mapManager;
 
-
+    private Animator anim;
+    
     public void Initialise(MapManager mapManager, Pin startPin)
     {
         _mapManager = mapManager;
         SetCurrentPin(startPin);
+        anim = GetComponent<Animator>();
     }
     
     
@@ -23,7 +25,6 @@ public class Character : MonoBehaviour
     private void Update()
     {
         if (_targetPin == null) return;
-
         // Get the characters current position and the targets position
         var currentPosition = transform.position;
         var targetPosition = _targetPin.transform.position;
@@ -36,6 +37,7 @@ public class Character : MonoBehaviour
                 targetPosition,
                 0.03f * Speed
             );
+            anim.SetBool("IsRunning", true);
         }
         else
         {
@@ -44,10 +46,12 @@ public class Character : MonoBehaviour
                 // Get a direction to keep moving in
                 var pin = _targetPin.GetNextPin(CurrentPin);
                 MoveToPin(pin);
+                anim.SetBool("IsRunning", true);
             }
             else
             {
                 SetCurrentPin(_targetPin);
+                anim.SetBool("IsRunning", false);
             }
         }
     }

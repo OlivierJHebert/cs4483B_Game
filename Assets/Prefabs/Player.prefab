@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1637436347337780934}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2409010841050604387}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750681605940195828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2409010841050604387}
@@ -84,8 +84,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066354622717845760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 2409010841050604387}
   m_RootOrder: 0
@@ -122,7 +122,7 @@ Transform:
   m_GameObject: {fileID: 2409010841050604385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 2.0362, y: 2.0362, z: 0}
   m_Children:
   - {fileID: 2207547067214623534}
   - {fileID: 2518987258557862062}
@@ -164,18 +164,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.019563437}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 2.08}
     newSize: {x: 1.0076962, y: 0.99743503}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.6243808, y: 1.3521428}
   m_EdgeRadius: 0
 --- !u!212 &2409010841050604318
 SpriteRenderer:
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 47baf6f1f2c72804f8f9be0ed7373128, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aef8830782331a6d0b056bef02cfd8eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -243,23 +243,22 @@ MonoBehaviour:
   fallFactor: 2
   dashStrength: 6
   dashCooldown: 5
-  leapStrength: 5
   plainForm:
-    playerSprite: {fileID: 21300000, guid: 47baf6f1f2c72804f8f9be0ed7373128, type: 3}
+    playerSprite: {fileID: 21300000, guid: aef8830782331a6d0b056bef02cfd8eb, type: 3}
     walkSpeed: 10
     jumpStrength: 21
     gravScale: 8
     fallMultiplier: 2
     physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
   ballForm:
-    playerSprite: {fileID: 21300000, guid: ea77fde5c2d1bcb43b1b5a4e333937ac, type: 3}
+    playerSprite: {fileID: 21300000, guid: 9f81146734f4bfcfaae2c52fd273b9d5, type: 3}
     walkSpeed: 15
     jumpStrength: 20
     gravScale: 6
     fallMultiplier: 1
     physicsMat: {fileID: 6200000, guid: 0d9d17ee3fb00414f95be0826686fc54, type: 2}
   flatForm:
-    playerSprite: {fileID: 21300000, guid: 8649e70eae1743c4e948a0820555197f, type: 3}
+    playerSprite: {fileID: 21300000, guid: 607e6e42665863b039d1e56d219e33c2, type: 3}
     walkSpeed: 5
     jumpStrength: 10
     gravScale: 2
@@ -283,6 +282,9 @@ MonoBehaviour:
   maxHealth: 4
   fireResist: 2
   waterResist: -2
+  burnDuration: 3
+  damageInterval: 3
+  waterEffectDuration: 3
   playerDeathManager: {fileID: 0}
   isBlocking: 0
   blockCooldown: 5
@@ -316,7 +318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxMagicPool: 1
   attackCooldown: 0.3
-  attackRange: 1
+  attackRange: 0.75
   damage: 1
   attackPosSide: {fileID: 2207547067214623534}
   attackPosUp: {fileID: 2518987258557862062}

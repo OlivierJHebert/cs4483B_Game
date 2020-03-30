@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
             transform.position = Vector3.MoveTowards(
                 currentPosition,
                 targetPosition,
-                0.01f * Speed
+                0.03f * Speed
             );
         }
         else

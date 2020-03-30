@@ -5,43 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Level1_Basics.unity
-    guid: 6249251018a1cb94993d21e1dcca5d08
-  - enabled: 1
-    path: Assets/Scenes/Level Select.unity
-    guid: 2521dc8f68814408495a32a2955d0bdb
-  - enabled: 1
-    path: Assets/Scenes/Level2_Updraft.unity
-    guid: dbee5121e66433d48b145d585abe9e5f
-  - enabled: 1
-    path: Assets/Scenes/test.unity
-    guid: fb2f7a77b4e658248a21c4a8f8cd9267
-  - enabled: 1
-    path: Assets/Scenes/test2.unity
-    guid: d3ecea50d95addb4ca36613057bb567c
-  - enabled: 1
-    path: Assets/Scenes/LevelUp.unity
-    guid: 4e6995c0f1e2dd149be8e911473c7bab
-  - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 2b0e681fc69ef5a4d988714b89f957dd
-  - enabled: 1
-    path: Assets/Scenes/Level3_Water.unity
-    guid: c5709887ad16dc944a931ece204ef47d
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 7fcff6e8f59a2be49917e950ace11cbd
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: b56ecaa6090e8594cbe418d7a1ccfb56
   - enabled: 1
-    path: Assets/Scenes/test3.unity
-    guid: 155b9e5ced17f07498d00cd591eaa3e2
+    path: Assets/Scenes/Level Select.unity
+    guid: 2521dc8f68814408495a32a2955d0bdb
   - enabled: 1
-    path: Assets/Scenes/test4.unity
-    guid: 33b93147e8ce05e419ee3fd896c25b7b
+    path: Assets/Scenes/Level1_Basics.unity
+    guid: 6249251018a1cb94993d21e1dcca5d08
+  - enabled: 1
+    path: Assets/Scenes/Level2_Updraft.unity
+    guid: dbee5121e66433d48b145d585abe9e5f
+  - enabled: 1
+    path: Assets/Scenes/Level3_Fire_temp.unity
+    guid: 85d2ce67694783342b09eb9b74095ef2
+  - enabled: 1
+    path: Assets/Scenes/Level3_Water.unity
+    guid: b74a60d95215dbb43a863fc2863d6eaf
+  - enabled: 1
+    path: Assets/Scenes/Level4_Fire.unity
+    guid: 961024190b2ced3409b87bb1df29e9cb
+  - enabled: 1
+    path: Assets/Scenes/LevelUp.unity
+    guid: 4e6995c0f1e2dd149be8e911473c7bab
   m_configObjects: {}

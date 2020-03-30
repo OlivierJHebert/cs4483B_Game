@@ -12,19 +12,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Select.unity
     guid: 2521dc8f68814408495a32a2955d0bdb
   - enabled: 1
-    path: Assets/Scenes/Level1_Basics.unity
+    path: Assets/Scenes/Level 1.unity
     guid: 6249251018a1cb94993d21e1dcca5d08
   - enabled: 1
-    path: Assets/Scenes/Level2_Updraft.unity
+    path: Assets/Scenes/Level 2.unity
     guid: dbee5121e66433d48b145d585abe9e5f
   - enabled: 1
-    path: Assets/Scenes/Level3_Fire_temp.unity
+    path: Assets/Scenes/Level 3.unity
     guid: 85d2ce67694783342b09eb9b74095ef2
   - enabled: 1
-    path: Assets/Scenes/Level3_Water.unity
+    path: Assets/Scenes/Level 4.unity
     guid: b74a60d95215dbb43a863fc2863d6eaf
   - enabled: 1
-    path: Assets/Scenes/Level4_Fire.unity
+    path: Assets/Scenes/Level 5.unity
     guid: 961024190b2ced3409b87bb1df29e9cb
   - enabled: 1
     path: Assets/Scenes/LevelUp.unity

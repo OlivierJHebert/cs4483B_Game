@@ -68,4 +68,8 @@ public class PlayerHealth : Health
         }
         
     }
+
+    public bool getBlocking() {
+        return isBlocking;
+    }
 }

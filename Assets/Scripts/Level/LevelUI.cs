@@ -19,8 +19,10 @@ public class LevelUI : MonoBehaviour
     
     public int statusBuildup, fireResist, waterResist;
     public Slider slider;
-    
 
+    public bool isBlocking;
+    public Image shield;
+    
     void Start() {
         playerHealth = player.GetComponent<PlayerHealth>();
         playerAttack = player.GetComponent<PlayerAttack>();
@@ -73,7 +75,7 @@ public class LevelUI : MonoBehaviour
         magicPool = playerAttack.getMagicPool();
 
         // Update magic sprites
-        for (int i = 0; i < magicPts.Length; i++)
+        for (int i = 0; i < magic; i++)
         {
             Animator anim = magicPts[i].GetComponent<Animator>();
 
@@ -83,5 +85,9 @@ public class LevelUI : MonoBehaviour
 
         statusBuildup = playerHealth.getStatusBuildup();
         slider.value = statusBuildup;
+
+        isBlocking = playerHealth.getBlocking();
+        if(isBlocking) shield.enabled = true;
+        else shield.enabled = false;
     }
 }

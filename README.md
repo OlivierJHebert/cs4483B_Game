@@ -16,6 +16,7 @@ How to play / Controls:
  - Defeat all the enemies in the stage to beat the level
  - Beating a stage will return you to the map where you can select a level
  - Upgrade stats after each level to increase your character's damage, speed, health, and abilities:
+	
 	Magic:
 	 - 0 Points: PlainForm, which allows you to attack and use abilities (tap 1 to activate)
 	 - 3 Points: FlatForm, which allows you to float on thermals well but leap is disabled (tap 2 to activate)
@@ -23,6 +24,7 @@ How to play / Controls:
 	Health:
 	 - 3 Points: Hold Left Shift to activate Shield, which allows you to block attacks
 	 - 5 Points: Gain bonus resistances to water and fire statuses
+	 
 	Attack: 
 	 - 3 Points: Increases sword range
 	Speed: 

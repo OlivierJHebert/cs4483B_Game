@@ -39,7 +39,7 @@ public class LevelUI : MonoBehaviour
 
         // Remove unused magic
         for (int i = magic; i < magicPts.Length; i++)
-            Destroy(hearts[i]);
+            Destroy(magicPts[i]);
     }
 
     void Update()

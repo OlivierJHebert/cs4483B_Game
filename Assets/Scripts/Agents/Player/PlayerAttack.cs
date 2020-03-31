@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public Animator anim;
     public float maxMagicPool = 5;
     private float magicPool;
     private float attackDelay;//time btwn last attack and next successful attack request
+    private float hitDelay; // Time between attack animation start and damage dealt
     public float attackCooldown;//time between successful attack requests
     public float attackRange;//radius of attack circle
     public float damage;
@@ -27,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
         if (PlayerPrefs.GetInt("attack") >= 3)
         {
             attackRange += 0.5f;
+            anim.SetBool("LongSword", true);
         }
 
         currAttackPos = attackPosSide;
@@ -34,18 +37,12 @@ public class PlayerAttack : MonoBehaviour
     }
     void Update()
     {
-        if(attackDelay <= 0 && IsTransformed == false)
+        if (hitDelay > 0)
         {
-            //You can attack!
-            if (Input.GetKeyDown(KeyCode.Z))
+            hitDelay -= Time.deltaTime;
+
+            if (hitDelay <= 0)
             {
-                Debug.Log("Player Attacks!");
-
-                //determine direction of attack
-                if (Input.GetKey(KeyCode.UpArrow)) currAttackPos = attackPosUp;
-                else if (Input.GetKey(KeyCode.DownArrow) && isGrounded() == false) currAttackPos = attackPosDown;
-                else currAttackPos = attackPosSide;
-
                 Collider2D[] enemiesToDmg = Physics2D.OverlapCircleAll(currAttackPos.position, attackRange, enemyLayer);
 
                 for (int i = 0; i < enemiesToDmg.Length; i++)
@@ -57,11 +54,40 @@ public class PlayerAttack : MonoBehaviour
                 attackDelay = attackCooldown;
             }
         }
+        else if(attackDelay <= 0 && IsTransformed == false)
+        {
+            //You can attack!
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Debug.Log("Player Attacks!");
 
+                //determine direction of attack
+                if (Input.GetKey(KeyCode.UpArrow))
+                {
+                    currAttackPos = attackPosUp;
+                    anim.SetBool("AttackingUp", true);
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && isGrounded() == false)
+                {
+                    currAttackPos = attackPosDown;
+                    anim.SetBool("AttackingDown", true);
+                }
+                else 
+                {
+                    currAttackPos = attackPosSide;
+                    anim.SetBool("AttackingSide", true);
+                }
+
+                hitDelay = 0.125f;
+            }
+        }
         else
         {
             //attack is on cooldown
             attackDelay -= Time.deltaTime;
+            anim.SetBool("AttackingUp", false);
+            anim.SetBool("AttackingDown", false);
+            anim.SetBool("AttackingSide", false);
         }
     }
 

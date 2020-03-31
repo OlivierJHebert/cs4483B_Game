@@ -31,6 +31,8 @@ public class PlayerMove : MonoBehaviour, IMove
     [SerializeField] private Form ballForm;
     [SerializeField] private Form flatForm;
 
+    private Animator anim;
+
     [SerializeField] private LayerMask platformsLayerMask;
 
     private Rigidbody2D m_body;
@@ -45,6 +47,7 @@ public class PlayerMove : MonoBehaviour, IMove
         m_boxCollider2d = gameObject.GetComponent<BoxCollider2D>();
         m_spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         attackScript = gameObject.GetComponent<PlayerAttack>();
+        anim = gameObject.GetComponent<Animator>();
 
         //init player shapeshift state
         shapeshift(plainForm);
@@ -143,6 +146,9 @@ public class PlayerMove : MonoBehaviour, IMove
         if (knockbackTimer < 0.5f && ( currentForm != ballForm || isGrounded() ))
             m_body.velocity = new Vector2(walkInput * currWalkSpeed, m_body.velocity.y);
 
+        anim.SetBool("Running", (walkInput * currWalkSpeed) != 0);
+        anim.SetBool("Jumping", !isGrounded());
+
         //player facing (flips according to horizontal input)
         if(walkInput > 0)
         {
@@ -216,7 +222,25 @@ public class PlayerMove : MonoBehaviour, IMove
         currentForm = next;
         m_body.gravityScale = next.GravityScale;
         m_body.sharedMaterial = next.Material;
-        m_spriteRenderer.sprite = next.Sprite;
+
+        // Change the animation state
+        switch (next.FormName)
+        {
+            case "Plain":
+                anim.SetBool("BallForm", false);
+                anim.SetBool("FlatForm", false);
+                break;
+
+            case "Ball":
+                anim.SetBool("BallForm", true);
+                anim.SetBool("FlatForm", false);
+                break;
+
+            case "Flat":
+                anim.SetBool("BallForm", false);
+                anim.SetBool("FlatForm", true);
+                break;
+        }
     }
 
     public void TriggerWaterEffect(float time)

@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750681605940195828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8, z: 0}
+  m_LocalPosition: {x: 0, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2409010841050604387}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066354622717845760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalPosition: {x: 0.6, y: 0.1, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children: []
   m_Father: {fileID: 2409010841050604387}
@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: -5293985889216034612}
   - component: {fileID: 6392639349641588882}
   - component: {fileID: -7243901278822282648}
+  - component: {fileID: 9081343372971357243}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -169,7 +170,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2, y: 2.08}
-    newSize: {x: 1.0076962, y: 0.99743503}
+    newSize: {x: 2, y: 2.08}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -221,7 +222,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.0076962, y: 0.99743503}
+  m_Size: {x: 2, y: 2.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -244,21 +245,21 @@ MonoBehaviour:
   dashStrength: 6
   dashCooldown: 5
   plainForm:
-    playerSprite: {fileID: 21300000, guid: aef8830782331a6d0b056bef02cfd8eb, type: 3}
+    formName: Plain
     walkSpeed: 10
     jumpStrength: 21
     gravScale: 8
     fallMultiplier: 2
     physicsMat: {fileID: 6200000, guid: a0aa64c1d532e074e8e9ce3d6aa9d2e3, type: 2}
   ballForm:
-    playerSprite: {fileID: 21300000, guid: 9f81146734f4bfcfaae2c52fd273b9d5, type: 3}
+    formName: Ball
     walkSpeed: 15
     jumpStrength: 20
     gravScale: 6
     fallMultiplier: 1
     physicsMat: {fileID: 6200000, guid: 0d9d17ee3fb00414f95be0826686fc54, type: 2}
   flatForm:
-    playerSprite: {fileID: 21300000, guid: 607e6e42665863b039d1e56d219e33c2, type: 3}
+    formName: Flat
     walkSpeed: 5
     jumpStrength: 10
     gravScale: 2
@@ -316,8 +317,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa17458b3d8701489e942530e1e6bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 9081343372971357243}
   maxMagicPool: 1
-  attackCooldown: 0.3
+  attackCooldown: 0.25
   attackRange: 0.75
   damage: 1
   attackPosSide: {fileID: 2207547067214623534}
@@ -329,3 +331,22 @@ MonoBehaviour:
   platformLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!95 &9081343372971357243
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2409010841050604385}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a8fac2b0164556a08b8504f2f87263f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour {
     public int magic;
     
     void Start() {
-        PlayerPrefs.SetInt("HP", 5);
+        //PlayerPrefs.SetInt("HP", 5);
         //PlayerPrefs.SetInt("attack", attack);
         //PlayerPrefs.SetInt("speed", speed);
         //PlayerPrefs.SetInt("magic", magic);

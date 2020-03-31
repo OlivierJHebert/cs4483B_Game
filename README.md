@@ -21,6 +21,7 @@ How to play / Controls:
 	 - 0 Points: PlainForm, which allows you to attack and use abilities (tap 1 to activate)
 	 - 3 Points: FlatForm, which allows you to float on thermals well but leap is disabled (tap 2 to activate)
 	 - 5 Points: BallForm, which allows you to roll fast and bounce (collision artefacts) (tap 3 to activate)
+	 
 	Health:
 	 - 3 Points: Hold Left Shift to activate Shield, which allows you to block attacks
 	 - 5 Points: Gain bonus resistances to water and fire statuses
